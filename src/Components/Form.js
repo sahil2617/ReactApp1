@@ -2,11 +2,11 @@ import React,{useState} from 'react'
 
 export default function Form(property) {
 
-    const [text,setText] = useState('Enter the text here');
-
+    const [text,setText] = useState('');
+    let wordCounts = text.split(' ').length;
     function HandleUpClick(e) {
         e.preventDefault()
-      console.log('sbmit button clicked and the text is '+ text);  
+          
       let newText = text.toUpperCase();
       setText(newText)
     }
@@ -17,17 +17,26 @@ export default function Form(property) {
     }
 
     return (
-        <>  <div className="col-md-4 my-3 mx-auto">
+        <>  <div className="col-md-6 my-3 mx-auto">
             <form>
                     <div className="mb-3">
                         <h2>{property.title}</h2>
-                        <input type="text" className="form-control" onChange={HandleOnChange} id="email" value={text}/>
+                        <textarea type="text" className="form-control" onChange={HandleOnChange} id="email" value={text}rows='6'></textarea>
                         
                     </div>
                     <button type="submit" id='submitBtn' onClick={HandleUpClick} className="btn btn-primary">Convert to UpperCase</button>
             </form>
             </div>
+            <div className="col-md-6 my-3 mx-auto">
+                <h2>Statistics</h2>
+                <h5>Total words count : {wordCounts}</h5>
+                <h5>Total Characters count : {text.length}</h5>
+                <br />
+                <h2>Preview</h2>
+                <p>{text}</p>
+            </div>
         </>
       );
 };
 
+ 
