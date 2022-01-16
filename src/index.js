@@ -1,22 +1,14 @@
  import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Mynavbar from './App';
-import Mynavbar1 from './container';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Mynavbar1 />
+    <App />
   </React.StrictMode>,
-  document.getElementById('root1')
-);
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Mynavbar />
-  </React.StrictMode>,
-  document.getElementById('navbar')
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
