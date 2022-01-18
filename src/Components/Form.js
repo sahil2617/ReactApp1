@@ -10,6 +10,7 @@ export default function Form(property) {
         e.preventDefault();
         let newText = '';
         setText(newText);
+        property.fireAlert('Textarea has been cleared',property.mode==='dark'?'primary':'info');
     }
     
         
@@ -19,12 +20,14 @@ export default function Form(property) {
           
       let newText = text.toUpperCase();
       setText(newText)
+      property.fireAlert('Text has been converted into UpperCase',property.mode==='dark'?'primary':'info');
     }
     function convertToLowerCase(e) {
         e.preventDefault()
           
       let newText = text.toLowerCase();
       setText(newText)
+      property.fireAlert('Text has been converted into LowerCase',property.mode==='dark'?'primary':'info');
     }
 
     function HandleOnChange(e) {
