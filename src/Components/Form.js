@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 
 export default function Form(property) {
+    property.dynamicTitle('Home');
 
     const [text,setText] = useState('');
     
@@ -43,8 +44,8 @@ export default function Form(property) {
                         <textarea type="text" className="form-control" onChange={HandleOnChange} id="email" value={text}rows='6' style={{backgroundColor: property.mode ==='dark'?'#031023':'white',color: property.mode ==='dark'?'white':'black'}}></textarea>
                         
                     </div>
-                    <button type="submit" id='Uppercase' onClick={convertToUpperCase} className="btn btn-primary mx-2">Convert to Uppercase</button>
-                    <button type="submit" id='Lowercase' onClick={convertToLowerCase} className="btn btn-primary mx-2">Convert to Lowercase</button>
+                    <button type="submit" id='Uppercase' onClick={convertToUpperCase} className="btn btn-primary mx-2">Uppercase</button>
+                    <button type="submit" id='Lowercase' onClick={convertToLowerCase} className="btn btn-primary mx-2">Lowercase</button>
                     <button type="submit" id='clearTextarea' onClick={clear} className="btn btn-primary mx-2">Clear</button>
             </form>
             </div>

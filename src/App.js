@@ -3,6 +3,8 @@ import Navbar from './Components/Navbar'
 import Form from './Components/Form'
 import React, { useState } from 'react'
 import Alert from './Components/Alert';
+// import About from './Components/About';
+// import {  BrowserRouter as Router,  Routes,  Route,  Link } from "react-router-dom";
 
 
 function App() {
@@ -37,15 +39,31 @@ function App() {
                 fireAlert('Light Mode has been enabled','info');
               }
           }
-          
+          // theme toggling ends here
+          const[title,setTitle] = useState('')
+          const dynamicTitle = (title)=>{
+              setTitle(title);
+              document.title = title;
+          }
   
-  // theme toggling ends here
     return (
       <>
+      {/* <Router> */}
+
       <Navbar title ='Sahil.react' toggleMode = {toggleMode}  mode = {mode}/>
       <Alert alert = {alert} />
-        <Form title = 'Enter the text to convert' mode = {mode} fireAlert = {fireAlert} />
-        
+
+      {/* <Routes> */}
+          {/* <Route  path='/about' element = {<About dynamicTitle ={dynamicTitle} />} /> */}
+              
+          
+          {/* <Route  path = '/'  */}
+          <Form title = 'Enter the text to convert into' mode = {mode} dynamicTitle = {dynamicTitle} fireAlert = {fireAlert} />
+          {/* /> */}
+               
+      {/* </Routes> */}
+
+      {/* </Router> */}
       </>
     );
     
