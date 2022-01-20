@@ -5,7 +5,7 @@ export default function Form(property) {
 
     const [text,setText] = useState('');
     
-    let wordCounts = text.split(' ').length;
+    let wordCounts = text.split(' ').filter((e)=>{return e.length!==0}).length;
 
     function clear(e) {
         e.preventDefault();
@@ -55,10 +55,10 @@ export default function Form(property) {
                         <textarea type="text" className="form-control" onChange={HandleOnChange} id="textArea" value={text}rows='6' style={{backgroundColor: property.mode ==='dark'?'#031023':'white',color: property.mode ==='dark'?'white':'black'}}></textarea>
                         
                     </div>
-                    <button type="submit" id='Uppercase' onClick={convertToUpperCase} className="btn btn-primary my-2 mx-2">Uppercase</button>
-                    <button type="submit" id='Lowercase' onClick={convertToLowerCase} className="btn btn-primary my-2 mx-2">Lowercase</button>
-                    <button type="submit" id='clearTextarea' onClick={copy} className="btn btn-primary my-2 mx-2">Copy</button>
-                    <button type="submit" id='clearTextarea' onClick={clear} className="btn btn-primary my-2 mx-2">Clear</button>
+                    <button disabled = {wordCounts === 0} type="submit" id='Uppercase' onClick={convertToUpperCase} className="btn btn-primary my-2 mx-2">Uppercase</button>
+                    <button  disabled = {wordCounts === 0} type="submit" id='Lowercase' onClick={convertToLowerCase} className="btn btn-primary my-2 mx-2">Lowercase</button>
+                    <button  disabled = {wordCounts === 0} type="submit" id='clearTextarea' onClick={copy} className="btn btn-primary my-2 mx-2">Copy</button>
+                    <button  disabled = {wordCounts === 0} type="submit" id='clearTextarea' onClick={clear} className="btn btn-primary my-2 mx-2">Clear</button>
             </form>
             </div>
             <div className="col-md-6 my-3 mx-auto" style={{color: property.mode==='dark'?'white':'black'}} >
