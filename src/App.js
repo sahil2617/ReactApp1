@@ -4,10 +4,12 @@ import Form from './Components/Form'
 import React, { useState } from 'react'
 import Alert from './Components/Alert';
 import About from './Components/About';
+import Products from './Components/Products';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 function App() {
+  
   // Alert toggling starts here 
   const [alert, setAlert] = useState(null);
   const fireAlert = (message, type) => {
@@ -54,9 +56,9 @@ function App() {
         <Alert alert={alert} />
 
         <Routes>
-          <Route path='/' exact element={<Form title='Enter the text to convert into' mode={mode} dynamicTitle={dynamicTitle} fireAlert={fireAlert} />}
-          />
+          <Route path='/' exact element={<Form title='Enter the text to convert into' mode={mode} dynamicTitle={dynamicTitle} fireAlert={fireAlert} />}          />
           <Route path='/about' exact element={<About dynamicTitle={dynamicTitle} />} />
+          <Route path='/products' exact element={<Products dynamicTitle={dynamicTitle} mode={mode} />} />
         </Routes>
 
       </Router>
